@@ -1,30 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import 'package:weather_app/models/home_screen_model.dart';
+import '../../../common/provider/current_weather_provider.dart';
 import '../../../models/weather_model.dart';
 
-
 class WeatherCard extends StatelessWidget {
-  const WeatherCard({super.key, required this.homeScreenModel, required this.weatherModel});
+  const WeatherCard({super.key, required this.homeScreenModel});
   final HomeScreenModel homeScreenModel;
- final WeatherModel? weatherModel;
-
 
   @override
   Widget build(BuildContext context) {
+    /// CURRENT WEATHER MODEL PROVIDER CALLED FOR UI INTEGRATION
+    final WeatherModel? currentWeatherModel =
+        context.watch<CurrentWeatherProvider>().currentWeather;
     return Container(
       height: 320,
       decoration: BoxDecoration(
-          color: homeScreenModel.weatherCardColor,
-          borderRadius: BorderRadius.circular(35),
-          ),
+        color: homeScreenModel.weatherCardColor,
+        borderRadius: BorderRadius.circular(35),
+      ),
       child: Column(
         children: [
           const SizedBox(height: 15),
           Text(
             'Today',
-            style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: homeScreenModel.textColor1),
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium!
+                .copyWith(color: homeScreenModel.textColor1),
           ),
           const SizedBox(height: 20),
           Row(
@@ -36,8 +41,11 @@ class WeatherCard extends StatelessWidget {
               ),
               const SizedBox(width: 15),
               Text(
-                '${weatherModel?.temperature.toStringAsFixed(1)}°C',
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: homeScreenModel.textColor1),
+                '${currentWeatherModel?.temperature.toStringAsFixed(1)}°C',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyLarge!
+                    .copyWith(color: homeScreenModel.textColor1),
               ),
             ],
           ),
@@ -45,18 +53,27 @@ class WeatherCard extends StatelessWidget {
           Column(
             children: [
               Text(
-                '${weatherModel?.mainCondition}',
-                style: Theme.of(context).textTheme.bodySmall!.copyWith(color: homeScreenModel.textColor1),
+                '${currentWeatherModel?.mainCondition}',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall!
+                    .copyWith(color: homeScreenModel.textColor1),
               ),
               const SizedBox(height: 22),
               Text(
-                '${weatherModel?.cityName}',
-                style: Theme.of(context).textTheme.bodySmall!.copyWith(color: homeScreenModel.textColor1),
+                '${currentWeatherModel?.cityName}',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall!
+                    .copyWith(color: homeScreenModel.textColor1),
               ),
               const SizedBox(height: 22),
               Text(
                 DateFormat.yMMMMd().format(DateTime.now()),
-                  style: Theme.of(context).textTheme.bodySmall!.copyWith(color: homeScreenModel.textColor1),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall!
+                    .copyWith(color: homeScreenModel.textColor1),
               ),
               const SizedBox(height: 22),
               IntrinsicHeight(
@@ -64,8 +81,11 @@ class WeatherCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Feels like ${weatherModel?.feelsLike.toStringAsFixed(1)}°C',
-                      style: Theme.of(context).textTheme.bodySmall!.copyWith(color: homeScreenModel.textColor1),
+                      'Feels like ${currentWeatherModel?.feelsLike.toStringAsFixed(1)}°C',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodySmall!
+                          .copyWith(color: homeScreenModel.textColor1),
                     ),
                     VerticalDivider(
                       thickness: 1,
@@ -75,8 +95,11 @@ class WeatherCard extends StatelessWidget {
                       color: homeScreenModel.dividerColor,
                     ),
                     Text(
-                      'Wind ${weatherModel?.windSpeed.toStringAsFixed(1)} m/s',
-                      style: Theme.of(context).textTheme.bodySmall!.copyWith(color: homeScreenModel.textColor1),
+                      'Wind ${currentWeatherModel?.windSpeed.toStringAsFixed(1)} m/s',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodySmall!
+                          .copyWith(color: homeScreenModel.textColor1),
                     )
                   ],
                 ),
