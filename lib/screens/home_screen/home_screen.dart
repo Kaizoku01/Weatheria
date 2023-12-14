@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
-
+//https://api.openweathermap.org/data/2.5/forecast?lat=28.58&lon=77.33&appid=9b31021c65318b31ffb85696ec489058 for forcast data
 class _HomeScreenState extends State<HomeScreen> {
   final HomeScreenModel _homeScreenModel = HomeScreenModel.screenModeList[1];
   final WeatherService _weatherService = WeatherService.serviceList[0];

@@ -18,6 +18,5 @@ class TimedWeatherDataModel {
     TimedWeatherDataModel(time: '8', meridiem: 'AM', weatherIcon: 'assets/images/cloudy.svg', temperature: '21'),
     TimedWeatherDataModel(time: '9', meridiem: 'AM', weatherIcon: 'assets/images/cloudy.svg', temperature: '20'),
     TimedWeatherDataModel(time: '10', meridiem: 'AM', weatherIcon: 'assets/images/cloudy.svg', temperature: '21'),
-
   ];
 }
