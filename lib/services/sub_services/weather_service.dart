@@ -7,8 +7,7 @@ import 'package:weather_app/common/provider/coordinate_provider.dart';
 import 'package:weather_app/common/provider/current_weather_provider.dart';
 import 'package:weather_app/common/provider/forecast_weather_provider.dart';
 import 'package:weather_app/models/forecast_weather_model.dart';
-import 'package:weather_app/services/quote_service.dart';
-import '../models/weather_model.dart';
+import '../../models/weather_model.dart';
 import 'package:http/http.dart' as http;
 
 class WeatherService {
@@ -102,28 +101,5 @@ class WeatherService {
     } else {
       throw Exception('Failed to load weather data');
     }
-  }
-
-  ///[fetchAllWeatherApi] This method is central hub for all kinds of API fetching.
-  /// This is the method present in the [HomeScreen] FutureBuilder
-  static Future<void> fetchAllWeatherApi(BuildContext context) async {
-    //Fetching coordinates method called
-    await WeatherService.getCoordinates(context);
-
-    //decoding city name using coordinates
-    if (!context.mounted) return;
-    String cityName = await getCurrentCity(context);
-
-    //Fetching current weather
-    if (!context.mounted) return;
-    await getCurrentWeather(cityName: cityName, context: context);
-
-    //Fetching forecast weather
-    if (!context.mounted) return;
-    await getWeatherForecast(context);
-
-    //Fetching quote 
-    if (!context.mounted) return;
-    await QuoteService.getQuote(context);
   }
 }

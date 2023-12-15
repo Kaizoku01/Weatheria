@@ -5,8 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../common/provider/quote_provider.dart';
-import '../models/quote_data_model.dart';
+import '../../common/provider/quote_provider.dart';
+import '../../models/quote_data_model.dart';
 class QuoteService {
   //base URL for api calling
   static const kBASEURL = 'https://api.api-ninjas.com';
