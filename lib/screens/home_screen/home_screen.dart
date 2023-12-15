@@ -24,8 +24,6 @@ class HomeScreen extends StatelessWidget {
           }else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}, Kindly reload app'));
           }
-
-         // List<ForecastWeatherModel>? forecastWeatherModelList = context.watch<ForecastWeatherProvider>().forecastWeatherModelList;
           return Stack(
             children: [
               // Background image changes according to the weather

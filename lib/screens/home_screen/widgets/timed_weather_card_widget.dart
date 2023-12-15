@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:weather_app/common/provider/forecast_weather_provider.dart';
 import 'package:weather_app/screens/home_screen/widgets/timed_weather_card_label.dart';
 
 import '../../../models/home_screen_model.dart';
@@ -10,6 +12,7 @@ class TimeWeatherCard extends StatelessWidget {
   final HomeScreenModel homeScreenModel;
   @override
   Widget build(BuildContext context) {
+    List<ForecastWeatherModel> forecastWeatherModelList = context.watch<ForecastWeatherProvider>().forecastWeatherModelList;
     return Container(
         height: 150,
         //width: 300,
@@ -35,8 +38,8 @@ class TimeWeatherCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  for (int i = 0; i < TimedWeatherDataModel.weatherLabelList.length / 2; i++)
-                    TimedWeatherLabel(labelData: TimedWeatherDataModel.weatherLabelList[i]),
+                  for (int i = 0; i < forecastWeatherModelList.length / 2; i++)
+                    TimedWeatherLabel(forecastWeatherModel: forecastWeatherModelList[i]),
                 ],
               ),
               const Padding(
@@ -46,8 +49,8 @@ class TimeWeatherCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  for (double i = TimedWeatherDataModel.weatherLabelList.length / 2; i < TimedWeatherDataModel.weatherLabelList.length; i++)
-                    TimedWeatherLabel(labelData: TimedWeatherDataModel.weatherLabelList[i.toInt()]),
+                  for (double i = forecastWeatherModelList.length / 2; i < forecastWeatherModelList.length; i++)
+                    TimedWeatherLabel(forecastWeatherModel: forecastWeatherModelList[i.toInt()]),
                 ],
               ),
             ],
