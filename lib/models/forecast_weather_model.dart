@@ -13,7 +13,7 @@ class ForecastWeatherModel {
       {required Map<String, dynamic> json, required int index, required String icon}) {
     return ForecastWeatherModel(
       timeStamp: json['list'][index]['dt'],
-      temperature: json['list'][index]['main']['temp'],
+      temperature: json['list'][index]['main']['temp'].toDouble(),
       weatherIcon: icon,
     );
   }

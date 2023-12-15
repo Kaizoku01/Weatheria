@@ -25,5 +25,6 @@ class MainService{
     //Fetching quote
     if (!context.mounted) return;
     await QuoteService.getQuote(context);
+
   }
 }

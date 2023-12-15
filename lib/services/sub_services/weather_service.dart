@@ -24,6 +24,7 @@ class WeatherService {
         Uri.parse('$kBASEURL/weather?q=$cityName&appid=$apiKey&units=metric'));
 
     if (response.statusCode == 200) {
+
       weatherModel = WeatherModel.fromJson(jsonDecode(response.body));
 
       //CURRENT WEATHER MODEL INITIALIZED
