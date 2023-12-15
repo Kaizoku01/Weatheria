@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/models/home_screen_model.dart';
 import 'package:weather_app/screens/home_screen/widgets/description_text_widget.dart';
-import 'package:weather_app/screens/home_screen/widgets/timed_weather_card_widget.dart';
+import 'package:weather_app/screens/home_screen/widgets/forecast_weather_card.dart';
 import 'package:weather_app/screens/home_screen/widgets/weather_card.dart';
-import 'package:weather_app/services/weather_service.dart';
+import 'package:weather_app/services/main_service.dart';
+
 
 
 class HomeScreen extends StatelessWidget {
@@ -17,7 +18,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: _homeScreenModel.backDropColor,
       body: FutureBuilder(
-        future: WeatherService.fetchAllWeatherApi(context),
+        future: MainService.allApiFetch(context),
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -41,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                         homeScreenModel: _homeScreenModel),
 
                     ///[TimeWeatherCard] --> card with temperature value for every hour
-                    TimeWeatherCard(homeScreenModel: _homeScreenModel),
+                    ForecastWeatherCard(homeScreenModel: _homeScreenModel),
 
                     ///[DescriptionWidget] --> descriptive text at the bottom
                     const DescriptionWidget(),

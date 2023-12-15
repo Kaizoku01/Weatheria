@@ -6,8 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:weather_app/common/provider/coordinate_provider.dart';
 import 'package:weather_app/common/provider/current_weather_provider.dart';
 import 'package:weather_app/common/provider/forecast_weather_provider.dart';
-import 'package:weather_app/models/timed_weather_card_model.dart';
-import '../models/weather_model.dart';
+import 'package:weather_app/models/forecast_weather_model.dart';
+import '../../models/weather_model.dart';
 import 'package:http/http.dart' as http;
 
 class WeatherService {
@@ -19,11 +19,14 @@ class WeatherService {
   static Future<void> getCurrentWeather(
       {required String? cityName, required BuildContext context}) async {
     WeatherModel weatherModel;
+
     final response = await http.get(
         Uri.parse('$kBASEURL/weather?q=$cityName&appid=$apiKey&units=metric'));
+
     if (response.statusCode == 200) {
       weatherModel = WeatherModel.fromJson(jsonDecode(response.body));
 
+      //CURRENT WEATHER MODEL INITIALIZED
       if (context.mounted) {
         context
             .read<CurrentWeatherProvider>()
@@ -39,7 +42,8 @@ class WeatherService {
     //CALLING COORDINATE PROVIDER FOR DECODING CITY
     double latitude =
         Provider.of<CoordinateProvider>(context, listen: false).latitude;
-    double longitude = context.read<CoordinateProvider>().longitude;
+    double longitude =
+        Provider.of<CoordinateProvider>(context, listen: false).longitude;
 
     List<Placemark> placemarks =
         await placemarkFromCoordinates(latitude, longitude);
@@ -60,7 +64,7 @@ class WeatherService {
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
 
-    //COORDINATE PROVIDER UPDATED
+    //COORDINATE PROVIDER INITIALIZED
     if (context.mounted) {
       context
           .read<CoordinateProvider>()
@@ -97,24 +101,5 @@ class WeatherService {
     } else {
       throw Exception('Failed to load weather data');
     }
-  }
-
-  ///[fetchAllWeatherApi] This method is central hub for all kinds of API fetching.
-  /// This is the method present in the [HomeScreen] FutureBuilder
-  static Future<void> fetchAllWeatherApi(BuildContext context) async {
-    //Fetching coordinates method called
-    await WeatherService.getCoordinates(context);
-
-    //decoding city name using coordinates
-    if (!context.mounted) return;
-    String cityName = await getCurrentCity(context);
-
-    //Fetching current weather
-    if (!context.mounted) return;
-    await getCurrentWeather(cityName: cityName, context: context);
-
-    //Fetching forecast weather
-    if (!context.mounted) return;
-    await getWeatherForecast(context);
   }
 }
