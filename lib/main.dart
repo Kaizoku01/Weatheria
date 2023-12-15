@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:weather_app/common/provider/coordinate_provider.dart';
 import 'package:weather_app/common/provider/current_weather_provider.dart';
 import 'package:weather_app/common/provider/forecast_weather_provider.dart';
+import 'package:weather_app/common/provider/quote_provider.dart';
 import 'package:weather_app/models/theme/text_theme_model.dart';
 import 'package:weather_app/screens/home_screen/home_screen.dart';
 
@@ -11,9 +12,10 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => CoordinateProvider()),
-        ChangeNotifierProvider(create: (context) => CurrentWeatherProvider()),
-        ChangeNotifierProvider(create: (context) => ForecastWeatherProvider())
+        ChangeNotifierProvider(create: (_) => CoordinateProvider()),
+        ChangeNotifierProvider(create: (_) => CurrentWeatherProvider()),
+        ChangeNotifierProvider(create: (_) => ForecastWeatherProvider()),
+        ChangeNotifierProvider(create: (_) => QuoteProvider()),
       ],
       child: const MyApp(),
     ),

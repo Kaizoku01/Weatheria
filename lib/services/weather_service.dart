@@ -7,6 +7,7 @@ import 'package:weather_app/common/provider/coordinate_provider.dart';
 import 'package:weather_app/common/provider/current_weather_provider.dart';
 import 'package:weather_app/common/provider/forecast_weather_provider.dart';
 import 'package:weather_app/models/forecast_weather_model.dart';
+import 'package:weather_app/services/quote_service.dart';
 import '../models/weather_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -24,6 +25,7 @@ class WeatherService {
     if (response.statusCode == 200) {
       weatherModel = WeatherModel.fromJson(jsonDecode(response.body));
 
+      //CURRENT WEATHER MODEL INITIALIZED
       if (context.mounted) {
         context
             .read<CurrentWeatherProvider>()
@@ -39,7 +41,8 @@ class WeatherService {
     //CALLING COORDINATE PROVIDER FOR DECODING CITY
     double latitude =
         Provider.of<CoordinateProvider>(context, listen: false).latitude;
-    double longitude = context.read<CoordinateProvider>().longitude;
+    double longitude =
+        Provider.of<CoordinateProvider>(context, listen: false).longitude;
 
     List<Placemark> placemarks =
         await placemarkFromCoordinates(latitude, longitude);
@@ -60,7 +63,7 @@ class WeatherService {
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
 
-    //COORDINATE PROVIDER UPDATED
+    //COORDINATE PROVIDER INITIALIZED
     if (context.mounted) {
       context
           .read<CoordinateProvider>()
@@ -116,5 +119,8 @@ class WeatherService {
     //Fetching forecast weather
     if (!context.mounted) return;
     await getWeatherForecast(context);
+
+    if (!context.mounted) return;
+    await QuoteService.getQuote(context);
   }
 }
