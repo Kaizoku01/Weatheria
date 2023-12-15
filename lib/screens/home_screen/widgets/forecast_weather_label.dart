@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../models/theme/text_theme_model.dart';
-import '../../../models/timed_weather_card_model.dart';
+import '../../../models/forecast_weather_model.dart';
 
-class TimedWeatherLabel extends StatelessWidget {
-  const TimedWeatherLabel({super.key, required this.forecastWeatherModel});
+class ForecastWeatherLabel extends StatelessWidget {
+  const ForecastWeatherLabel({super.key, required this.forecastWeatherModel});
   final ForecastWeatherModel forecastWeatherModel;
   @override
   Widget build(BuildContext context) {

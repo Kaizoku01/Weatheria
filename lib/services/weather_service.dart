@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:weather_app/common/provider/coordinate_provider.dart';
 import 'package:weather_app/common/provider/current_weather_provider.dart';
 import 'package:weather_app/common/provider/forecast_weather_provider.dart';
-import 'package:weather_app/models/timed_weather_card_model.dart';
+import 'package:weather_app/models/forecast_weather_model.dart';
 import '../models/weather_model.dart';
 import 'package:http/http.dart' as http;
 
