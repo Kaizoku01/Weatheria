@@ -5,7 +5,7 @@ class ForecastWeatherModel {
       {required this.timeStamp,
       required this.temperature,
      required this.weatherIcon});
-  
+
   final int timeStamp;
   final double temperature;
   final String weatherIcon;

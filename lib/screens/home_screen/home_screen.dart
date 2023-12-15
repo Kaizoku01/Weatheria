@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
   //BACKGROUND UI MODEL
-  final HomeScreenModel _homeScreenModel = HomeScreenModel.screenModeList[2];
+  final HomeScreenModel _homeScreenModel = HomeScreenModel.screenModeList[5];
 
   @override
   Widget build(BuildContext context) {
