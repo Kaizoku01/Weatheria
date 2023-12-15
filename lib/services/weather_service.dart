@@ -20,8 +20,10 @@ class WeatherService {
   static Future<void> getCurrentWeather(
       {required String? cityName, required BuildContext context}) async {
     WeatherModel weatherModel;
+
     final response = await http.get(
         Uri.parse('$kBASEURL/weather?q=$cityName&appid=$apiKey&units=metric'));
+
     if (response.statusCode == 200) {
       weatherModel = WeatherModel.fromJson(jsonDecode(response.body));
 
@@ -120,6 +122,7 @@ class WeatherService {
     if (!context.mounted) return;
     await getWeatherForecast(context);
 
+    //Fetching quote 
     if (!context.mounted) return;
     await QuoteService.getQuote(context);
   }
