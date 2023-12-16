@@ -22,11 +22,17 @@ class HomeScreen extends StatelessWidget {
           body: FutureBuilder(
             future: MainService.allApiFetch(context),
             builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+              //loading ui handling
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(child: CircularProgressIndicator());
+                return Center(
+                  child: Lottie.asset(
+                    'assets/animations/loading_animation.json',
+                    height: 200,
+                  ),
+                );
               }
               else if (snapshot.hasError) {
-                //1. Network error handling
+                //1. Network error UI handling
                 if(connectivityProvider.status == ConnectivityStatus.disconnected){
                   return AlertDialog(
                     shape: const CircleBorder(),
@@ -37,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   );
                 }
-                // other error handling
+                // other error UI handling
                 return Center(child: Text('Error: ${snapshot.error}, Kindly reload app'));
               }
               return Stack(
