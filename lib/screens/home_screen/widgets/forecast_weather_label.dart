@@ -16,7 +16,7 @@ class ForecastWeatherLabel extends StatelessWidget {
           children: [
             SvgPicture.asset(
               forecastWeatherModel.weatherIcon,
-              color: Colors.white,
+              colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
               height: 12,
             ),
             const SizedBox(width: 5),
