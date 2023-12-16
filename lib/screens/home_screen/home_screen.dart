@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/common/provider/theme_provider.dart';
 import 'package:weather_app/models/home_screen_ui_model.dart';
@@ -25,9 +26,18 @@ class HomeScreen extends StatelessWidget {
                 return const Center(child: CircularProgressIndicator());
               }
               else if (snapshot.hasError) {
+                //1. Network error handling
                 if(connectivityProvider.status == ConnectivityStatus.disconnected){
-                  return AlertDialog(title: Text('disconnected'),);
+                  return AlertDialog(
+                    shape: const CircleBorder(),
+                    backgroundColor: homeScreenUIModel.weatherCardColor,
+                    content: Lottie.asset(
+                      'assets/animations/connection_failure_animation.json',
+                      height: 150,
+                    ),
+                  );
                 }
+                // other error handling
                 return Center(child: Text('Error: ${snapshot.error}, Kindly reload app'));
               }
               return Stack(
