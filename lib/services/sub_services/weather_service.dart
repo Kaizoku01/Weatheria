@@ -16,7 +16,7 @@ class WeatherService {
   static const apiKey = '9b31021c65318b31ffb85696ec489058';
 
   ///[getWeather] fetches the weather in converted WeatherModel format
-  static Future<void> getCurrentWeather(
+  static Future<WeatherModel> getCurrentWeather(
       {required String? cityName, required BuildContext context}) async {
     WeatherModel weatherModel;
 
@@ -24,8 +24,9 @@ class WeatherService {
         Uri.parse('$kBASEURL/weather?q=$cityName&appid=$apiKey&units=metric'));
 
     if (response.statusCode == 200) {
+      Map<String, dynamic> decodedJson = jsonDecode(response.body);
 
-      weatherModel = WeatherModel.fromJson(jsonDecode(response.body));
+      weatherModel = WeatherModel.fromJson(decodedJson);
 
       //CURRENT WEATHER MODEL INITIALIZED
       if (context.mounted) {
@@ -33,6 +34,7 @@ class WeatherService {
             .read<CurrentWeatherProvider>()
             .updateCurrentWeather(weatherModel);
       }
+      return weatherModel;
     } else {
       throw Exception('Failed to load weather data');
     }

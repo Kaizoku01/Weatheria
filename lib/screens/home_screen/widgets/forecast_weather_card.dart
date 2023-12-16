@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/common/provider/forecast_weather_provider.dart';
 import 'package:weather_app/screens/home_screen/widgets/forecast_weather_label.dart';
-import '../../../models/home_screen_model.dart';
+import '../../../models/home_screen_ui_model.dart';
 
 class ForecastWeatherCard extends StatelessWidget {
   const ForecastWeatherCard({super.key,required this.homeScreenModel});
-  final HomeScreenModel homeScreenModel;
+  final HomeScreenUIModel homeScreenModel;
   @override
   Widget build(BuildContext context) {
     return Consumer<ForecastWeatherProvider>(
