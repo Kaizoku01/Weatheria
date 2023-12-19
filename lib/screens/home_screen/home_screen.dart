@@ -9,7 +9,6 @@ import 'package:weather_app/screens/home_screen/widgets/weather_card.dart';
 import 'package:weather_app/services/main_service.dart';
 
 import '../../common/provider/connectivity_provider.dart';
-import '../../services/sub_services/searching_service.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -32,10 +31,10 @@ class HomeScreen extends StatelessWidget {
                       height: 200,
                     ),
                   );
-                }
-                else if (snapshot.hasError) {
+                } else if (snapshot.hasError) {
                   //1. Network error UI handling
-                  if(connectivityProvider.status == ConnectivityStatus.disconnected){
+                  if (connectivityProvider.status ==
+                      ConnectivityStatus.disconnected) {
                     return AlertDialog(
                       shape: const CircleBorder(),
                       backgroundColor: homeScreenUIModel.weatherCardColor,
@@ -46,7 +45,9 @@ class HomeScreen extends StatelessWidget {
                     );
                   }
                   // other error UI handling
-                  return Center(child: Text('Error: ${snapshot.error}, Kindly reload app'));
+                  return Center(
+                    child: Text('Error: ${snapshot.error}, Kindly reload app'),
+                  );
                 }
                 return Stack(
                   children: [
@@ -97,13 +98,14 @@ class HomeScreen extends StatelessWidget {
                           WeatherCard(homeScreenUIModel: homeScreenUIModel),
 
                           ///[TimeWeatherCard] --> card with temperature value for every hour
-                          ForecastWeatherCard(homeScreenModel: homeScreenUIModel),
+                          ForecastWeatherCard(
+                              homeScreenModel: homeScreenUIModel),
 
                           ///[DescriptionWidget] --> descriptive text at the bottom
                           const DescriptionWidget(),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 );
               },
