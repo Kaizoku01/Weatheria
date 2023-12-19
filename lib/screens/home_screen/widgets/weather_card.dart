@@ -4,9 +4,6 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/models/home_screen_ui_model.dart';
 import '../../../common/provider/current_weather_provider.dart';
-import 'dart:math' as math;
-
-import '../../../services/sub_services/searching_service.dart';
 
 class WeatherCard extends StatelessWidget {
   const WeatherCard({super.key, required this.homeScreenUIModel});
@@ -73,24 +70,6 @@ class WeatherCard extends StatelessWidget {
                             .bodySmall!
                             .copyWith(color: homeScreenUIModel.textColor1),
                       ),
-                      // const SizedBox(width: 5),
-                      // Transform(
-                      //   transform: Matrix4.rotationY(math.pi),
-                      //   alignment: Alignment.center,
-                      //   child: GestureDetector(
-                      //       child: const Icon(
-                      //     Icons.search,
-                      //     color: Colors.black,
-                      //     size: 20,
-                      //   ),
-                      //   onTap: () async {
-                      //     await showSearch(
-                      //       context: context,
-                      //       delegate: CustomSearchDelegate(),
-                      //     );
-                      //   },
-                      //   ),
-                      // ),
                     ],
                   ),
                   const SizedBox(height: 22),
