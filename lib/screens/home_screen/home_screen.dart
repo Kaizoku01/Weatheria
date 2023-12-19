@@ -7,9 +7,7 @@ import 'package:weather_app/screens/home_screen/widgets/description_text_widget.
 import 'package:weather_app/screens/home_screen/widgets/forecast_weather_card.dart';
 import 'package:weather_app/screens/home_screen/widgets/weather_card.dart';
 import 'package:weather_app/services/main_service.dart';
-
 import '../../common/provider/connectivity_provider.dart';
-import '../../services/sub_services/searching_service.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -60,39 +58,6 @@ class HomeScreen extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          // SizedBox(
-                          //   height: 50,
-                          //   child: TextField(
-                          //     decoration: InputDecoration(
-                          //       filled: true,
-                          //       fillColor: homeScreenUIModel.timedWeatherCardColor,
-                          //       hintText: 'search : city',
-                          //       hintStyle: Theme.of(context).textTheme.bodySmall,
-                          //       focusedBorder: OutlineInputBorder(
-                          //         borderRadius: BorderRadius.circular(28.0),
-                          //         borderSide: const BorderSide(
-                          //           color: Colors.transparent,
-                          //         ),
-                          //       ),
-                          //       enabledBorder: OutlineInputBorder(
-                          //         borderRadius: BorderRadius.circular(28.0),
-                          //         borderSide: const BorderSide(
-                          //           color: Colors.transparent,
-                          //         ),
-                          //       ),
-                          //       prefixIcon: Icon(
-                          //         Icons.search,
-                          //         color: Colors.black,
-                          //       ),
-                          //     ),
-                          //     onTap: () {
-                          //       showSearch(
-                          //           context: context,
-                          //           delegate: CustomSearchDelegate());
-                          //     },
-                          //     readOnly: true,
-                          //   ),
-                          // ),
                           ///[WeatherCard] --> card with the temperature with weatherIcon
                           WeatherCard(homeScreenUIModel: homeScreenUIModel),
 
