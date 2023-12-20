@@ -1,16 +1,33 @@
-# weather_app
+# Weatheria
 
-A new Flutter project.
+This Flutter application provides real-time weather information for your locations. It fetches weather data from a third-party API `OpenWeatherMaps` and displays it in a user-friendly interface.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- **Current Weather:** View the current weather conditions including temperature, wind speed, and description.
+- **Hourly Forecast:** Get an hourly forecast for the next 24 hours.
+- **Network Connectivity Monitoring:** Constantly monitors the device's network connection. When the network is down, the app provides a warning or prompt to inform the user about the loss of connectivity, ensuring a seamless user experience.
 
-A few resources to get you started if this is your first Flutter project:
+## Technologies Used
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Flutter:** The front-end framework used to develop the application.
+- **Dart:** The programming language used for coding within the Flutter framework.
+- **API:** Utilizes a weather API to fetch weather data.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Usage
+
+- Upon launching the app, it will automatically detect your current location and display the weather information.
+- You can also manually search for a specific location by using the search bar.
+
+## Screenshots
+
+Include screenshots or GIFs showcasing different parts of your application, such as the main screen displaying weather information, the search functionality, and any other key features.
+
+## Contributing
+
+If you'd like to contribute to this project, feel free to fork this repository and submit a pull request with your changes.
+
+## Credits
+
+- Weather data provided by [OpenWeatherMaps](https://openweathermap.org/).
