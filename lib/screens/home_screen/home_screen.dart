@@ -30,10 +30,10 @@ class HomeScreen extends StatelessWidget {
                       height: 200,
                     ),
                   );
-                }
-                else if (snapshot.hasError) {
+                } else if (snapshot.hasError) {
                   //1. Network error UI handling
-                  if(connectivityProvider.status == ConnectivityStatus.disconnected){
+                  if (connectivityProvider.status ==
+                      ConnectivityStatus.disconnected) {
                     return AlertDialog(
                       shape: const CircleBorder(),
                       backgroundColor: homeScreenUIModel.weatherCardColor,
@@ -44,17 +44,23 @@ class HomeScreen extends StatelessWidget {
                     );
                   }
                   // other error UI handling
-                  return Center(child: Text('Error: ${snapshot.error}, Kindly reload app'));
+                  return Center(
+                    child: Text('Error: ${snapshot.error}, Kindly reload app'),
+                  );
                 }
                 return Stack(
                   children: [
                     // Background image changes according to the weather
-                    Image.asset(
-                      homeScreenUIModel.backDropImage,
-                      fit: BoxFit.fitHeight,
-                    ),
+                    // Image.asset(
+                    //   homeScreenUIModel.backDropImage,
+                    //   fit: BoxFit.fitHeight,
+                    // ),
+                    // SvgPicture.asset(
+                    //   homeScreenUIModel.backDropImage,
+                    //   //fit: BoxFit.fitHeight,
+                    // ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -62,13 +68,15 @@ class HomeScreen extends StatelessWidget {
                           WeatherCard(homeScreenUIModel: homeScreenUIModel),
 
                           ///[TimeWeatherCard] --> card with temperature value for every hour
-                          ForecastWeatherCard(homeScreenModel: homeScreenUIModel),
+                          ForecastWeatherCard(
+                              homeScreenModel: homeScreenUIModel),
 
                           ///[DescriptionWidget] --> descriptive text at the bottom
-                          const DescriptionWidget(),
+                          DescriptionWidget(
+                              homeScreenUIModel: homeScreenUIModel),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 );
               },

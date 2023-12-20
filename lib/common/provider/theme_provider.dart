@@ -11,6 +11,7 @@ class ThemeProvider with ChangeNotifier{
     weatherCardColor: const Color.fromRGBO(250, 226, 189, 1),
     timedWeatherCardColor: const Color.fromRGBO(250, 226, 189, 1),
     dividerColor: const Color.fromRGBO(239, 170, 130, 1),
+    quoteColor: Colors.white,
   );
 
   bool themeChange = false;

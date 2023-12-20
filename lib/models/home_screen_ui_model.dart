@@ -13,7 +13,9 @@ class HomeScreenUIModel {
       required this.weatherIcon,
       required this.weatherCardColor,
       required this.timedWeatherCardColor,
-      required this.dividerColor});
+      required this.dividerColor,
+      required this.quoteColor,
+      });
   final String backDropImage;
   final Color textColor1;
   final Color backDropColor;
@@ -21,11 +23,20 @@ class HomeScreenUIModel {
   final Color weatherCardColor;
   final Color timedWeatherCardColor;
   final Color dividerColor;
+  final Color quoteColor;
 
   static void homeScreenThemeSelector({required BuildContext context}) {
     WeatherModel? weatherModel =
         context.read<CurrentWeatherProvider>().currentWeather;
     int weatherId = weatherModel!.weatherId;
+
+    ///FOR TESTING OUT DIFFERENT THEMES IN DIFFERENT WEATHERS
+    // if(context.read<ThemeProvider>().themeChange == false){
+    //       context.read<ThemeProvider>().updateTheme(
+    //           WeatherTheme.getWeatherTheme(CurrentWeatherTheme.snow));
+    //
+    //       context.read<ThemeProvider>().toggleThemeChange();
+    // }
 
     if (weatherId >= 200 && weatherId <= 232) {
       if (context.read<ThemeProvider>().themeChange == false) {
