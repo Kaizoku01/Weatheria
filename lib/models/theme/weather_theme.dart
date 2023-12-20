@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/models/home_screen_ui_model.dart';
+
 enum CurrentWeatherTheme {
   thunderstorm,
   rain,
@@ -8,6 +9,7 @@ enum CurrentWeatherTheme {
   sunny,
   cloudy,
 }
+
 class WeatherTheme {
   static HomeScreenUIModel getWeatherTheme(CurrentWeatherTheme theme) {
     switch (theme) {
@@ -20,6 +22,7 @@ class WeatherTheme {
           weatherCardColor: const Color.fromRGBO(250, 226, 189, 1),
           timedWeatherCardColor: const Color.fromRGBO(250, 226, 189, 1),
           dividerColor: const Color.fromRGBO(239, 170, 130, 1),
+          quoteColor: Colors.white,
         );
       case CurrentWeatherTheme.rain:
         return HomeScreenUIModel(
@@ -30,6 +33,7 @@ class WeatherTheme {
           weatherCardColor: const Color.fromRGBO(127, 195, 174, 1),
           timedWeatherCardColor: const Color.fromRGBO(127, 195, 174, 1),
           dividerColor: const Color.fromRGBO(201, 232, 224, 1),
+          quoteColor: Colors.white,
         );
       case CurrentWeatherTheme.snow:
         return HomeScreenUIModel(
@@ -40,6 +44,7 @@ class WeatherTheme {
           weatherCardColor: const Color.fromRGBO(153, 184, 204, 1),
           timedWeatherCardColor: const Color.fromRGBO(153, 184, 204, 0.7),
           dividerColor: const Color.fromRGBO(228, 241, 249, 1),
+          quoteColor: Colors.black,
         );
       case CurrentWeatherTheme.thunderstorm:
         return HomeScreenUIModel(
@@ -50,16 +55,18 @@ class WeatherTheme {
           weatherCardColor: const Color.fromRGBO(97, 82, 115, 1),
           timedWeatherCardColor: const Color.fromRGBO(204, 218, 255, 1),
           dividerColor: const Color.fromRGBO(194, 184, 255, 1),
+          quoteColor: Colors.white,
         );
       case CurrentWeatherTheme.atmosphere:
         return HomeScreenUIModel(
           backDropImage: 'assets/images/atmosphere_bg.png',
-          textColor1: const Color.fromRGBO(133, 167, 143, 1),
-          backDropColor: const Color.fromRGBO(203, 244, 250, 1),
+          textColor1: const Color.fromRGBO(246, 200, 164, 1),
+          backDropColor: const Color.fromRGBO(210, 139, 111,1),
           weatherIcon: 'assets/images/atmosphere.svg',
-          weatherCardColor: const Color.fromRGBO(159, 220, 168, 1),
-          timedWeatherCardColor: const Color.fromRGBO(142, 202, 150, 0.7),
+          weatherCardColor: const Color.fromRGBO(172, 115, 106, 1),
+          timedWeatherCardColor: const Color.fromRGBO(172, 115, 106, 0.7),
           dividerColor: const Color.fromRGBO(228, 241, 249, 1),
+          quoteColor: Colors.white,
         );
       case CurrentWeatherTheme.cloudy:
         return HomeScreenUIModel(
@@ -70,6 +77,7 @@ class WeatherTheme {
           weatherCardColor: const Color.fromRGBO(144, 144, 172, 1),
           timedWeatherCardColor: const Color.fromRGBO(72, 74, 130, 1),
           dividerColor: const Color.fromRGBO(72, 74, 130, 1),
+          quoteColor: Colors.white,
         );
       default:
         //This is will not be executing
@@ -81,6 +89,7 @@ class WeatherTheme {
           weatherCardColor: const Color.fromRGBO(250, 226, 189, 1),
           timedWeatherCardColor: const Color.fromRGBO(250, 226, 189, 1),
           dividerColor: const Color.fromRGBO(239, 170, 130, 1),
+          quoteColor: Colors.white,
         );
     }
   }

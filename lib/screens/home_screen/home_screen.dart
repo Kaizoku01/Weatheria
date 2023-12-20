@@ -51,12 +51,16 @@ class HomeScreen extends StatelessWidget {
                 return Stack(
                   children: [
                     // Background image changes according to the weather
-                    Image.asset(
-                      homeScreenUIModel.backDropImage,
-                      fit: BoxFit.fitHeight,
-                    ),
+                    // Image.asset(
+                    //   homeScreenUIModel.backDropImage,
+                    //   fit: BoxFit.fitHeight,
+                    // ),
+                    // SvgPicture.asset(
+                    //   homeScreenUIModel.backDropImage,
+                    //   //fit: BoxFit.fitHeight,
+                    // ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -68,7 +72,8 @@ class HomeScreen extends StatelessWidget {
                               homeScreenModel: homeScreenUIModel),
 
                           ///[DescriptionWidget] --> descriptive text at the bottom
-                          const DescriptionWidget(),
+                          DescriptionWidget(
+                              homeScreenUIModel: homeScreenUIModel),
                         ],
                       ),
                     ),
