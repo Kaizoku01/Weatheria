@@ -1,12 +1,15 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/common/provider/coordinate_provider.dart';
 import 'package:weather_app/common/provider/current_weather_provider.dart';
 import 'package:weather_app/common/provider/forecast_weather_provider.dart';
+import 'package:weather_app/common/provider/theme_provider.dart';
 import 'package:weather_app/models/forecast_weather_model.dart';
+import 'package:weather_app/models/home_screen_ui_model.dart';
 import '../../models/weather_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -82,6 +85,7 @@ class WeatherService {
     double longitude = context.read<CoordinateProvider>().longitude;
 
     List<ForecastWeatherModel> forecastWeatherModelList = [];
+    HomeScreenUIModel homeScreenUIModel = context.read<ThemeProvider>().homeScreenUIModel;
 
     final response = await http.get(Uri.parse(
         '$kBASEURL/forecast?lat=$latitude&lon=$longitude&appid=$apiKey&units=metric'));
@@ -91,7 +95,7 @@ class WeatherService {
           ForecastWeatherModel.fromJson(
               json: jsonDecode(response.body),
               index: i,
-              icon: 'assets/images/cloudy.svg'),
+              icon: homeScreenUIModel.weatherIcon), //'assets/images/cloudy.svg'
         );
       }
 
