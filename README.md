@@ -7,6 +7,7 @@ This Flutter application provides real-time weather information for your locatio
 - **Current Weather:** View the current weather conditions including temperature, wind speed, and description.
 - **Hourly Forecast:** Get an hourly forecast for the next 24 hours.
 - **Network Connectivity Monitoring:** Constantly monitors the device's network connection. When the network is down, the app provides a warning or prompt to inform the user about the loss of connectivity, ensuring a seamless user experience.
+- **Dynamic Theme Change:** The app's theme dynamically adjusts based on the current weather conditions. This feature enhances the user experience by visually aligning the app with the prevailing weather conditions.
 
 ## Technologies Used
 
