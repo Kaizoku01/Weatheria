@@ -17,7 +17,7 @@ class WeatherTheme {
         return HomeScreenUIModel(
           backDropImage: 'assets/images/sunny_bg.png',
           textColor1: const Color.fromRGBO(239, 170, 130, 1),
-          backDropColor: const Color.fromRGBO(181, 170, 110, 1),
+          backDropColor: const Color.fromRGBO(236, 176, 141, 1),
           weatherIcon: 'assets/images/sunny.svg',
           weatherCardColor: const Color.fromRGBO(250, 226, 189, 1),
           timedWeatherCardColor: const Color.fromRGBO(250, 226, 189, 1),
