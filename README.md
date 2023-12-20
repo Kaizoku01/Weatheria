@@ -27,7 +27,6 @@ This Flutter application provides real-time weather information for your locatio
 <img src='https://github.com/Kaizoku01/Weatheria/assets/90988390/96b717da-5c59-437e-bf66-3aa6b6b0b6e7' height=400>
 <img src='https://github.com/Kaizoku01/Weatheria/assets/90988390/99afc094-e5cf-4614-afcb-28c2efb1497d' height=400>
 <img src='https://github.com/Kaizoku01/Weatheria/assets/90988390/601ab702-f2e7-469d-b5b2-a532d2648429' height=400>
-<br>
 <img src='https://github.com/Kaizoku01/Weatheria/assets/90988390/3c26f175-ffbb-42ef-9ad7-9aa232c54188' height=400>
 <img src='https://github.com/Kaizoku01/Weatheria/assets/90988390/9d96704a-6dc6-4f94-99b9-5f37d21b5520' height=400>
 
