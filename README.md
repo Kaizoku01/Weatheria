@@ -20,7 +20,7 @@ This Flutter application provides real-time weather information for your locatio
 
 - Upon launching the app, it will automatically detect your current location and display the weather information.
 - You can also manually search for a specific location by using the search bar.
-
+- [Play Store](https://play.google.com/store/apps/details?id=com.kaizokuapps.weatheria)
 ## Screenshots
 
 <img src='https://github.com/Kaizoku01/Weatheria/assets/90988390/303408b7-036f-4891-b295-8f614a03a938' height=400>
